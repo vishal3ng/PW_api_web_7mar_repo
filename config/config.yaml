@@ -1,0 +1,124 @@
+# ================================================================
+# MASTER CONFIGURATION FILE — PW_Automation Corporate Framework
+# Covers: Web (Playwright) | Mobile iOS/Android (Appium) | API
+# All secrets use ${ENV_VAR} — set in .env locally, CI Secrets in GitHub
+# ================================================================
+
+environment: "staging"    # local | staging | production
+
+# ----------------------------------------------------------------
+# Application URLs
+# ----------------------------------------------------------------
+urls:
+  staging:
+    base_url:     "https://www.selenium.dev/"
+    api_base_url: "https://restful-api.dev"
+  production:
+    base_url:     "https://www.myntra.com/"
+    api_base_url: "https://api.myntra.com"
+  local:
+    base_url:     "http://localhost:3000/"
+    api_base_url: "http://localhost:8080"
+
+# ----------------------------------------------------------------
+# User Pool
+# ----------------------------------------------------------------
+users:
+  pool_file: "users/users.json"
+  lock_timeout_seconds: 30
+
+# ----------------------------------------------------------------
+# Web Browser (Playwright)
+# ----------------------------------------------------------------
+browser:
+  name:     "chromium"
+  headless: true
+  slow_mo:  0
+  timeout:  30000
+  viewport:
+    width:  1920
+    height: 1080
+  video:    "retain-on-failure"
+
+# ----------------------------------------------------------------
+# Mobile — Appium (iOS & Android)
+# ----------------------------------------------------------------
+mobile:
+  appium_server: "http://127.0.0.1:4723"
+
+#  android:
+#    platform_name:    "Android"
+#    automation_name:  "UiAutomator2"
+#    device_name:      "emulator-5554"
+#    app_package:      "com.myntra.android"
+#    app_activity:     ".MainActivity"
+#    app_path:         "drivers/app-debug.apk"
+#    timeout:          30000
+#    no_reset:         false
+#
+#  ios:
+#    platform_name:    "iOS"
+#    automation_name:  "XCUITest"
+#    device_name:      "iPhone 14"
+#    platform_version: "17.0"
+#    udid:             "${IOS_UDID}"
+#    bundle_id:        "com.myntra.ios"
+#    app_path:         "drivers/Myntra.ipa"
+#    timeout:          30000
+#    no_reset:         false
+#    wda_local_port:   8100
+
+# ----------------------------------------------------------------
+# API Settings
+# ----------------------------------------------------------------
+api:
+  default_timeout: 15
+  retry_on_status: [500, 502, 503, 504]
+  max_retries:     2
+  headers:
+    Content-Type:  "application/json"
+    Accept:        "application/json"
+
+# ----------------------------------------------------------------
+# Allure Report
+# ----------------------------------------------------------------
+allure:
+  results_dir:        "allure-results"
+  report_dir:         "allure-report"
+  attach_logs:        true
+  attach_screenshots: true
+  attach_videos:      true
+
+# ----------------------------------------------------------------
+# Email Notifications
+# ----------------------------------------------------------------
+email:
+  enabled:   true
+  smtp_host: "smtp.gmail.com"
+  smtp_port: 465
+  sender:    "${EMAIL_SENDER}"
+  password:  "${EMAIL_PASSWORD}"
+  receivers:
+    - "qa-team@example.com"
+  send_on:   "failure"
+
+# ----------------------------------------------------------------
+# Logging
+# ----------------------------------------------------------------
+logging:
+  level:       "INFO"
+  log_dir:     "logs"
+  retain_logs: false
+
+# ----------------------------------------------------------------
+# Retry
+# ----------------------------------------------------------------
+retry:
+  max_retries:    2
+  delay_seconds:  1
+
+# ----------------------------------------------------------------
+# CI / Parallel Execution
+# ----------------------------------------------------------------
+ci:
+  parallel_workers: 4

@@ -1,0 +1,75 @@
+[
+  {
+    "id": "user_001",
+    "username": "admin@example.com",
+    "password": "Admin@1234",
+    "role": "admin",
+    "env": "staging",
+    "in_use": false,
+    "locked_by": null
+  },
+  {
+    "id": "user_002",
+    "username": "buyer1@example.com",
+    "password": "Buyer@1234",
+    "role": "buyer",
+    "env": "staging",
+    "in_use": false,
+    "locked_by": null
+  },
+  {
+    "id": "user_003",
+    "username": "buyer2@example.com",
+    "password": "Buyer@5678",
+    "role": "buyer",
+    "env": "staging",
+    "in_use": false,
+    "locked_by": null
+  },
+  {
+    "id": "user_004",
+    "username": "seller1@example.com",
+    "password": "Seller@1234",
+    "role": "seller",
+    "env": "staging",
+    "in_use": false,
+    "locked_by": null
+  },
+  {
+    "id": "user_005",
+    "username": "seller2@example.com",
+    "password": "Seller@5678",
+    "role": "seller",
+    "env": "staging",
+    "in_use": false,
+    "locked_by": null
+  },
+  {
+    "id": "user_006",
+    "username": "viewer@example.com",
+    "password": "Viewer@1234",
+    "role": "viewer",
+    "env": "staging",
+    "in_use": false,
+    "locked_by": null
+  },
+  {
+    "id": "user_007",
+    "username": "api_user@example.com",
+    "password": "ApiUser@1234",
+    "role": "api_user",
+    "env": "staging",
+    "in_use": false,
+    "locked_by": null,
+    "api_token": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.sample"
+  },
+  {
+    "id": "user_008",
+    "username": "mobile_user@example.com",
+    "password": "Mobile@1234",
+    "role": "mobile_user",
+    "env": "staging",
+    "in_use": false,
+    "locked_by": null
+  }
+]

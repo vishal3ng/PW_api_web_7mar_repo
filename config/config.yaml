@@ -32,7 +32,7 @@ users:
 # ----------------------------------------------------------------
 browser:
   name:     "chromium"
-  headless: true
+  headless: false
   slow_mo:  0
   timeout:  30000
   viewport:

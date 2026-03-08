@@ -8,6 +8,7 @@ import pytest
 
 from config.config_loader import CFG
 from pages.home_page.home_page import HomePage
+from pages.login.login_page import LoginPage
 
 
 @allure.epic("UI Tests")
@@ -21,11 +22,23 @@ class TestHomeUI:
         """Verify the home page loads without errors."""
         logger.info(f"Opening home page: {CFG.base_url}")
         home = HomePage(page)
+        lg = LoginPage(page)
 
         with allure.step("Navigate to home page"):
             home.open()
 
+        with allure.step("Click on download"):
+            lg.print_login()
+            pass
+
+
+
         with allure.step("Verify page title"):
+            title = page.title()
+            logger.info(f"Page title: {title}")
+            assert title, "Page title should not be empty"
+
+        with allure.step("Verify Home page Ui element "):
             title = page.title()
             logger.info(f"Page title: {title}")
             assert title, "Page title should not be empty"

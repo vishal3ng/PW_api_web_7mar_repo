@@ -55,6 +55,7 @@ class Config:
         b = raw["browser"]
         self.browser_name = b["name"]
         self.headless     = os.environ.get("HEADLESS", str(b["headless"])).lower() == "true"
+        print('brbrbr',os.environ.get("HEADLESS", str(b["headless"])).lower())
         self.slow_mo      = int(b["slow_mo"])
         self.timeout      = int(b["timeout"])
         self.viewport     = b["viewport"]

@@ -3,6 +3,8 @@ login_page.py
 -------------
 Page Object for the Login page.
 """
+import time
+
 import allure
 from playwright.sync_api import Page
 from pages.common_method import Common
@@ -15,6 +17,11 @@ class LoginPage(Common):
     _PASSWORD = "input[name='password']"
     _LOGIN_BTN = "button[type='submit']"
     _ERROR_MSG = ".error-message"
+
+
+    # xpath
+
+    download_xpath = "//span[text()='Downloads']"
 
     def __init__(self, page: Page):
         super().__init__(page)
@@ -31,3 +38,9 @@ class LoginPage(Common):
     @allure.step("Get login error message")
     def get_error_message(self) -> str:
         return self.get_text(self._ERROR_MSG)
+
+    @allure.step("print step from login check")
+    def print_login(self):
+        self.click(self.download_xpath)
+        time.sleep(5)
+
